@@ -7,6 +7,6 @@ const config = {
       ["feat", "fix", "docs", "chore", "refactor", "ui"],
     ],
   },
-};
+}
 
-export default config;
+export default config
