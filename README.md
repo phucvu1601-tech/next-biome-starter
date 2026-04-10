@@ -7,9 +7,11 @@ A minimal **Next.js starter** with essential development tooling preconfigured f
 - Next.js
 - TypeScript
 - Biome
+- EditorConfig
 - Commitlint
 - Lefthook
 - shadcn/ui
+- next-themes
 
 ## Setup
 
@@ -25,7 +27,13 @@ Linting and formatting are handled by **Biome** — a fast, all-in-one toolchain
 
 Ensures consistent code style and catches issues across the project with a single tool.
 
-### 3. Commitlint + Lefthook
+### 3. EditorConfig
+
+Editor-level formatting rules are defined in `.editorconfig`.
+
+Ensures consistent indentation, line endings, and encoding across different editors and IDEs — no plugin required for most modern editors.
+
+### 4. Commitlint + Lefthook
 
 Commit messages follow **Conventional Commits**.
 
@@ -42,10 +50,14 @@ fix: resolve navbar bug
 chore: update dependencies
 ```
 
-### 4. shadcn/ui
+### 5. shadcn/ui + next-themes
 
-UI components powered by **shadcn/ui**.
-Components are added directly to the project and can be customized as needed.
+UI components powered by **shadcn/ui** with dark/light mode support via **next-themes**.
+
+Components are added directly to the project and can be customized as needed. Theme switching is handled through:
+
+- `components/providers/theme-provider.tsx`
+- `components/header/theme-selector.tsx`
 
 ## Project Structure
 
@@ -55,32 +67,56 @@ Components are added directly to the project and can be customized as needed.
 ├── src/
 │   ├── app/
 │   ├── components/
+│   │   └── header/theme-selector.tsx
+│   │   └── providers/theme-provider.tsx
 │   │   └── ui/
 │   └── lib/
 ├── biome.json
 ├── commitlint.config.mjs
 ├── lefthook.yml
+├── .editorconfig
 ├── next.config.ts
 ├── tsconfig.json
 └── package.json
 ```
 
-## Usage
+## 🚀 Quick Start
 
-Clone or download the source code, then initialize a new repository:
+You can start your project using one of the following "flavors" (branches):
+
+- `main`: Minimal setup (Standard).
+- `feat/i18n`: Main + Multi-language configuration.
+
+Pick one of the following options to get started:
+
+### Option 1 — Use this template ⭐ (Recommended)
+
+Click **"Use this template"** on GitHub to create a new repo on your account — no commit history included.
+
+### Option 2 — Clone by branch
 
 ```bash
+# Clone the default branch
+git clone https://github.com/your-username/next-biome-starter.git
+
+# Or clone a specific branch
+git clone -b <branch-name> https://github.com/your-username/next-biome-starter.git
+```
+
+### Option 3 — Download ZIP by branch
+
+Go to the repo on GitHub → select a branch → click **Code** → **Download ZIP**.
+
+---
+
+### Then run:
+
+```bash
+# Skip this if you used Option 1
 git init
-```
 
-Install dependencies:
-
-```bash
 npm install
-```
-
-Start the development server:
-
-```bash
 npm run dev
 ```
+
+Open [http://localhost:3000](http://localhost:3000) and you're good to go. 🎉
